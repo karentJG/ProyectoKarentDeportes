@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>AllStarFit</title>
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap" rel="stylesheet">
+	<style>
+		body,
+		html {
+			margin: 0;
+			padding: 0;
+			font-family: 'Oswald', sans-serif;
+			height: 100%;
+			overflow-x: hidden;
+			background-color: #f8f9fa;
+			/* Light background color */
+		}
+
+		.navbar {
+			position: fixed;
+			top: 0;
+			left: 0;
+			right: 0;
+			background-color: rgba(255, 192, 203, 0.9);
+			/* Light pink background */
+			padding: 10px 15px;
+			z-index: 1000;
+			display: flex;
+			justify-content: center;
+			/* Centrando el contenido de la barra */
+			box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+		}
+
+		.navbar ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			gap: 15px;
+		}
+
+		.navbar li {
+			margin: 0;
+		}
+
+		.navbar a {
+			color: #FF69B4;
+			/* Hot pink */
+			text-decoration: none;
+			font-size: 16px;
+			font-weight: bold;
+			transition: color 0.3s ease;
+		}
+
+		.navbar a:hover {
+			color: #FF1493;
+			/* Deeper pink on hover */
+		}
+
+		.menu-toggle {
+			display: none;
+			font-size: 24px;
+			color: #FF69B4;
+			background: none;
+			border: none;
+			cursor: pointer;
+		}
+
+		.container {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding: 20px;
+			text-align: center;
+			position: relative;
+			min-height: 100vh;
+			color: #333;
+			margin-top: 60px;
+			/* Espacio para la barra de navegación fija */
+		}
+
+		.content-box {
+			width: 90%;
+			max-width: 800px;
+			/* Ancho máximo ajustado */
+			padding: 20px;
+			background-color: rgba(255, 255, 255, 0.8);
+			/* Fondo ligero */
+			border-radius: 8px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+			margin-bottom: 20px;
+		}
+
+		.hero-content {
+			margin-top: 0;
+			/* Sin margen superior adicional */
+		}
+
+		.hero-content h1 {
+			font-size: 2.5rem;
+			color: #FF69B4;
+			/* Hot pink heading */
+			margin-bottom: 20px;
+		}
+
+		.hero-content p {
+			font-size: 1.125rem;
+			line-height: 1.6;
+			margin-bottom: 40px;
+		}
+
+		@media (max-width: 599px) {
+			.menu-toggle {
+				display: block;
+			}
+
+			.navbar ul {
+				display: none;
+				flex-direction: column;
+				width: 100%;
+				align-items: center;
+				position: absolute;
+				top: 60px;
+				left: 0;
+				background: rgba(255, 192, 203, 0.9);
+				box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+				z-index: 1001;
+			}
+
+			.navbar ul.active {
+				display: flex;
+			}
+		}
+	</style>
+</head>
+
+<body>
+	<nav class="navbar">
+		<button class="menu-toggle"><i class="fas fa-bars"></i></button>
+		<ul>
+			<li><a href="/verEntrenador" th:href="@{/verEntrenador}"></i> Entrenadores</a></li>
+			<li><a href="/verAsociacion" th:href="@{/verAsociacion}"></i> Asociaciones</a></li>
+			<li><a href="/verCompeticion" th:href="@{/verCompeticion}"></i> Competiciones</a></li>
+			<li><a href="/verClub" th:href="@{/verClub}"></i> Clubes</a></li>
+			<li><a href="/verJugador" th:href="@{/verJugador}"></i> Jugadores</a></li>
+		</ul>
+	</nav>
+	<div class="container">
+		<div class="hero-content content-box">
+			<h1>AllStarFit</h1>
+			<p>Contamos con alternativas dinámicas y entretenidas que propenden por la formación del deportista integral
+				a través de prácticas lúdicas, formativas y competitivas que contribuyen a mejorar las capacidades
+				físicas, mentales, emocionales y socio afectivas de los deportistas.</p>
+		</div>
+	</div>
+	<script>
+		document.querySelector('.menu-toggle').addEventListener('click', function () {
+			document.querySelector('.navbar ul').classList.toggle('active');
+		});
+	</script>
+</body>
+
+</html>
